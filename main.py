@@ -12,7 +12,7 @@ TokenSecret = getenv('access_token_secret')
 Query = getenv('QUERY')
 Like = getenv('LIKE')
 SleepTime = int(getenv('SLEEP_TIME'))
-UserIdViUmCurso = getenv('UserIdViUmCurso')  # id de teste
+UserIdViUmCurso = getenv('UserIdViUmCurso')
 ListaDeExclusao = getenv('ListaDeExclusao')
 
 if Like in ["True", 'TRUE', 'TrUe', 'Verdadeiro']:  # statemant
@@ -31,8 +31,7 @@ api = tweepy.API(auth)
 print("Twitter bot which retweets, like tweets and follow users")
 print("Bot Settings")
 print('Like Tweets: {}'.format(NewLike))
-# print("Like Tweets :", like)
-# print("Follow users :", Follow)
+
 
 
 for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():  # statemant
