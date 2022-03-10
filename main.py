@@ -1,7 +1,7 @@
 from time import sleep
 from os import getenv
 from dotenv import load_dotenv
-import tweepy  # carregando as dependencias// importando os modulos
+import tweepy
 
 
 load_dotenv()
@@ -13,14 +13,13 @@ Query = getenv('QUERY')
 Like = getenv('LIKE')
 SleepTime = int(getenv('SLEEP_TIME'))
 UserIdViUmCurso = getenv('UserIdViUmCurso')
-ListaDeExclusao = getenv('ListaDeExclusao')
+ListaDeExclusao = 'ListaDeExclusao'
+
 
 if Like in ["True", 'TRUE', 'TrUe', 'Verdadeiro']:  # statemant
     NewLike = True
 else:
     NewLike = False
-
-
 
 
 auth = tweepy.OAuthHandler(Key, Secret)
@@ -33,12 +32,12 @@ print("Bot Settings")
 print('Like Tweets: {}'.format(NewLike))
 
 
-
-for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():  # statemant
+for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
     RetweetStatus = tweet._json['in_reply_to_status_id']
     Id = tweet._json['id']
     CreationTime = tweet._json['created_at']
     Text = tweet._json['text']
+    print(type(Text))
     UserId = tweet._json['user']
     print(UserId['id'])
 
@@ -57,13 +56,16 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():  # statemant
         if UserId['id_str'] == UserIdViUmCurso:
             continue
 
-        for exclusao in ListaDeExclusao:
-            if exclusao not in Text:
-                run = True
-                continue
-            else:
-                run = False
-                break
+        with open('C:/Users/agora vai/vi-um-curso/ListaDeExclusao', 'rb') as f:
+            for Line in f:
+                LineStr = str(Line)
+                if Text not in LineStr:
+                    run = True
+                    continue
+                else:
+                    run = False
+                    break
+
 
         if run:
             try:  # tratamento de exceção
@@ -73,6 +75,7 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():  # statemant
                 if NewLike:
                     tweet.favorite()
                     print('Favorited the tweet')
+
                 sleep(SleepTime)
 
             except tweepy.TweepyException as e:
