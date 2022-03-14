@@ -21,7 +21,6 @@ if Like in ["True", 'TRUE', 'TrUe', 'Verdadeiro']:  # statemant
 else:
     NewLike = False
 
-
 auth = tweepy.OAuthHandler(Key, Secret)
 auth.set_access_token(Token, TokenSecret)
 api = tweepy.API(auth)
@@ -56,6 +55,7 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
         if UserId['id_str'] == UserIdViUmCurso:
             continue
 
+
         with open('C:/Users/agora vai/vi-um-curso/ListaDeExclusao', 'rb') as f:
             for Line in f:
                 LineStr = str(Line)
@@ -67,6 +67,7 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
                     break
 
 
+
         if run:
             try:  # tratamento de exceção
                 print('\nTweet by: @' + tweet.user.screen_name)
@@ -75,7 +76,6 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
                 if NewLike:
                     tweet.favorite()
                     print('Favorited the tweet')
-
                 sleep(SleepTime)
 
             except tweepy.TweepyException as e:
