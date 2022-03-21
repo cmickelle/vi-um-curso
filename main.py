@@ -26,19 +26,12 @@ auth.set_access_token(Token, TokenSecret)
 api = tweepy.API(auth)
 
 
-print("Twitter bot which retweets, like tweets and follow users")
-print("Bot Settings")
-print('Like Tweets: {}'.format(NewLike))
-
-
 for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
     RetweetStatus = tweet._json['in_reply_to_status_id']
     Id = tweet._json['id']
     CreationTime = tweet._json['created_at']
     Text = tweet._json['text']
-    print(type(Text))
     UserId = tweet._json['user']
-    print(UserId['id'])
 
     if RetweetStatus != "null":
         try:
@@ -48,7 +41,6 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
             CreationTime = tweet._json['created_at']
             Text = tweet._json['text']
             UserId = tweet._json['user']
-            print(UserId['id'])
         except tweepy.errors.NotFound:
             pass
 
