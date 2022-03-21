@@ -56,7 +56,7 @@ for tweet in tweepy.Cursor(api.search_tweets, q=Query).items():
             continue
 
 
-        with open('C:/Users/agora vai/vi-um-curso/ListaDeExclusao', 'rb') as f:
+        with open(ListaDeExclusao, 'rb') as f:
             for Line in f:
                 LineStr = str(Line)
                 if Text not in LineStr:
