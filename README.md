@@ -41,8 +41,8 @@ python main.py
 ```
 
 ## Created by
-
-| [<img src="https://avatars.githubusercontent.com/u/94025010?v=4" width=115><br><sub>Christopher Mickelle</sub>](https://github.com/cmickelle) | [<img src="https://avatars.githubusercontent.com/u/31418573?v=4" width=115><br><sub>João Vitorino</sub>](https://github.com/jvitorinoj) | 
+| [<img src="https://avatars.githubusercontent.com/u/94025010?v=4" width=115><br><sub>Christopher Mickelle</sub>](https://github.com/cmickelle) | [<img src="https://avatars.githubusercontent.com/u/31418573?v=4" width=115><br><sub>João Vitorino</sub>](https://github.com/jvitorinoj) |
+|:---------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------:|
 
 
 https://github.com/cmickelle/
