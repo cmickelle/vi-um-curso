@@ -11,16 +11,16 @@ O bot tem as funções de procurar palavras chave, curtir e retweetar.
 Para isso ele acessa a API do twitter atravez da extensão tweepy.
 
 ## Instalação e execução
-#### 1º Crie uma conta para o bot
+#### Crie uma conta para o bot
 Crie uma conta de desenvolvedor do twitter com a função read and write.
 
-#### 2º Dependencias
+#### Dependencias
 Primeiro clone o repositório, depois instale as depêndencias que estão no arquivo 
 requirements.txt com o pip. Com o seguinte comando:
 ```
 pip install -r requirements.txt
 ```
-#### 3ºAutenticação
+#### Autenticação
 Crie um ariquivo ".env" com as keys da sua conta do twitter e as configurações do bot:
 ```
 consumer_key = 'sua consumer key'
